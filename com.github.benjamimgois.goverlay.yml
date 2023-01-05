@@ -20,7 +20,7 @@ build-options:
   env:
     LAZARUS_DIR: /usr/lib/sdk/freepascal/share/lazarus
 modules:
-
+  - shared-modules/glu/glu-9.json
   - name: qt5pas
     buildsystem: qmake
     config-opts:
