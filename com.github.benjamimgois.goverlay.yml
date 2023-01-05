@@ -25,3 +25,13 @@ modules:
         url: https://github.com/benjamimgois/goverlay.git
         tag: 0.9.1
         commit: f6f4eb001b9598eecca3e76e45d589ec7bcc324f
+
+  - name: qt5pas
+    buildsystem: qmake
+    config-opts:
+      - -after
+      - target.path=/app/lib
+    sources:
+      - type: shell
+        commands:
+          - cp -r /usr/lib/sdk/freepascal/share/lazarus/lcl/interfaces/qt5/cbindings/. .
