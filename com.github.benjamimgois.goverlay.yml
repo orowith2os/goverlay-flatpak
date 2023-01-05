@@ -1,0 +1,27 @@
+
+id: com.github.benjamimgois.goverlay
+runtime: org.kde.Platform
+runtime-version: '5.15-22.08'
+sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.freepascal
+command: start_goverlay
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
+  - --env=PATH=/app/bin:/app/utils/bin:/usr/bin:/usr/lib/extensions/vulkan/MangoHud/bin/:/usr/bin
+
+modules:
+  - name: goverlay
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/bin
+      - install -Dm755 data/goverlay.sh.in -T /app/bin/start_goverlay
+    sources: 
+      - type: git
+        url: https://github.com/benjamimgois/goverlay.git
+        tag: 0.9.1
+        commit: f6f4eb001b9598eecca3e76e45d589ec7bcc324f
